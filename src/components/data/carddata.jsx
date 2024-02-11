@@ -1,6 +1,9 @@
+import ellip from "../../assets/icon-ellipsis.svg";
 export const data = [
   {
+    id: 1,
     title: "Work",
+    ellip: ellip,
     timeframes: {
       daily: {
         current: 5,
@@ -17,7 +20,9 @@ export const data = [
     },
   },
   {
+    id: 2,
     title: "Play",
+    ellip: ellip,
     timeframes: {
       daily: {
         current: 1,
@@ -34,7 +39,9 @@ export const data = [
     },
   },
   {
+    id: 3,
     title: "Study",
+    ellip: ellip,
     timeframes: {
       daily: {
         current: 0,
@@ -51,7 +58,9 @@ export const data = [
     },
   },
   {
+    id: 4,
     title: "Exercise",
+    ellip: ellip,
     timeframes: {
       daily: {
         current: 1,
@@ -68,7 +77,9 @@ export const data = [
     },
   },
   {
+    id: 5,
     title: "Social",
+    ellip: ellip,
     timeframes: {
       daily: {
         current: 1,
@@ -85,7 +96,9 @@ export const data = [
     },
   },
   {
+    id: 6,
     title: "Self Care",
+    ellip: ellip,
     timeframes: {
       daily: {
         current: 0,
