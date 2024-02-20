@@ -8,7 +8,6 @@ const Cards = () => {
 
   const toggleVisibility = (timeframe) => {
     setVisible(visible);
-    // setVisible(!visible);
 
     setSelectedTimeframe(timeframe);
   };
@@ -70,21 +69,21 @@ const Cards = () => {
           lg:space-y-3 lg:flex-col lg:items-start  
 ">
           <div
-            className={`text-[18px] font-[400] text-[#7078c9] cursor-pointer ${
+            className={`text-[18px] font-[400] text-[#7078c9] cursor-pointer hover:text-[#FFF] ${
               selectedTimeframe === "daily" && "text-[#FFF]"
             }`}
             onClick={() => toggleVisibility("daily")}>
             Daily
           </div>
           <div
-            className={`text-[18px] font-[400] text-[#7078c9] cursor-pointer ${
+            className={`text-[18px] font-[400] text-[#7078c9] cursor-pointer hover:text-[#FFF] ${
               selectedTimeframe === "weekly" && "text-[#FFF]"
             }`}
             onClick={() => toggleVisibility("weekly")}>
             Weekly
           </div>
           <div
-            className={`text-[18px] font-[400] text-[#7078c9] cursor-pointer ${
+            className={`text-[18px] font-[400] text-[#7078c9] cursor-pointer hover:text-[#FFF] ${
               selectedTimeframe === "monthly" && "text-[#FFF]"
             }`}
             onClick={() => toggleVisibility("monthly")}>
@@ -102,8 +101,8 @@ const Cards = () => {
         {data?.map((spendingtime) => (
           <div
             className={`cursor-pointer 
-            max-sm:w-[327px] max-sm:h-[160px] max-sm:rounded-tl-[5px] max-sm:rounded-[15px]
-            sm:w-[327px] sm:h-[160px] sm:rounded-tl-[5px] sm:rounded-[15px]
+            max-sm:w-[327px] max-sm:h-[160px] max-sm:rounded-[15px]
+            sm:w-[327px] sm:h-[160px] sm:rounded-[15px]
             md:w-[255px] md:h-[150px] md:rounded-[15px] ${
               spendingtime.title === "Work"
                 ? "bg-[#ff8b64]"
@@ -131,7 +130,7 @@ const Cards = () => {
               />
             </div>
             <div
-              className="relative bg-[#1c204b] p-7  top-12 rounded-[15px] 
+              className="relative bg-[#1c204b] p-7  top-12 rounded-[15px] hover:bg-[#33397a]
              max-sm:w-[327px] max-sm:h-[122px]
              sm:w-[327px] sm:h-[122px]
              md:w-full md:h-[199px] ">
@@ -147,71 +146,63 @@ const Cards = () => {
               </div>
               <div>
                 {/* { visible ? ( */}
-                {
-                  !visible && (
-                    <div>
-                      {selectedTimeframe === "daily" && (
-                        <div
-                          className="max-sm:flex  max-sm:items-center 
+                {!visible && (
+                  <div>
+                    {selectedTimeframe === "daily" && (
+                      <div
+                        className="max-sm:flex  max-sm:items-center 
                         sm:flex sm:items-center md:flex-col md:items-start">
-                          <div
-                            className="font-[300] text-[#FFF] 
+                        <div
+                          className="font-[300] text-[#FFF] 
                           md:text-[56px] max-sm:text-[32px] sm:text-[32px]
                           ">
-                            {spendingtime?.timeframes.daily.current}hrs
-                          </div>
-                          <div
-                            className=" right-0 text-[15px] text-[#bbc0ff] font-[400]
+                          {spendingtime?.timeframes.daily.current}hrs
+                        </div>
+                        <div
+                          className=" right-0 text-[15px] text-[#bbc0ff] font-[400]
                             max-sm:w-[125px] max-sm:absolute sm:absolute sm:right-6 md:static
                            ">
-                            Last day - {spendingtime?.timeframes.daily.previous}
-                            hrs
-                          </div>
+                          Last day - {spendingtime?.timeframes.daily.previous}
+                          hrs
                         </div>
-                      )}
-                      {selectedTimeframe === "weekly" && (
-                        <div
-                          className="max-sm:flex  max-sm:items-center 
+                      </div>
+                    )}
+                    {selectedTimeframe === "weekly" && (
+                      <div
+                        className="max-sm:flex  max-sm:items-center 
                         sm:flex sm:items-center md:flex-col md:items-start">
-                          <div
-                            className="font-[300] text-[#FFF] 
+                        <div
+                          className="font-[300] text-[#FFF] 
                           md:text-[56px] max-sm:text-[32px] sm:text-[32px]">
-                            {spendingtime?.timeframes.weekly.current}hrs
-                          </div>
-                          <div
-                            className=" right-6 text-[15px] text-[#bbc0ff] font-[400] 
-                          max-sm:absolute sm:absolute sm:right-6 md:static">
-                            Last Week -{" "}
-                            {spendingtime?.timeframes.weekly.previous}
-                            hrs
-                          </div>
+                          {spendingtime?.timeframes.weekly.current}hrs
                         </div>
-                      )}
-                      {selectedTimeframe === "monthly" && (
                         <div
-                          className="max-sm:flex max-sm:items-center 
-                        sm:flex sm:items-center md:flex-col md:items-start">
-                          <div
-                            className=" font-[300] text-[#FFF] 
-                            md:text-[56px] max-sm:text-[32px] sm:text-[32px]">
-                            {spendingtime?.timeframes.monthly.current}hrs
-                          </div>
-                          <div
-                            className="right-6 text-[15px] text-[#bbc0ff] font-[400]
-                            max-sm:absolute sm:absolute sm:right-6 md:static">
-                            Last month -{" "}
-                            {spendingtime?.timeframes.monthly.previous}hrs
-                          </div>
+                          className=" right-6 text-[15px] text-[#bbc0ff] font-[400] 
+                          max-sm:absolute sm:absolute sm:right-6 md:static">
+                          Last Week - {spendingtime?.timeframes.weekly.previous}
+                          hrs
                         </div>
-                      )}
-                    </div>
-                  )
-                  // : (
-                  //   <div className="text-[15px] text-[#bbc0ff] font-[400]">
-                  //     Select a timeframe
-                  //   </div>
-                  // )
-                }
+                      </div>
+                    )}
+                    {selectedTimeframe === "monthly" && (
+                      <div
+                        className="max-sm:flex max-sm:items-center 
+                        sm:flex sm:items-center md:flex-col md:items-start">
+                        <div
+                          className=" font-[300] text-[#FFF] 
+                            md:text-[56px] max-sm:text-[32px] sm:text-[32px]">
+                          {spendingtime?.timeframes.monthly.current}hrs
+                        </div>
+                        <div
+                          className="right-6 text-[15px] text-[#bbc0ff] font-[400]
+                            max-sm:absolute sm:absolute sm:right-6 md:static">
+                          Last month -{" "}
+                          {spendingtime?.timeframes.monthly.previous}hrs
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
